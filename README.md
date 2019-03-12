@@ -2,11 +2,8 @@
 A YOLO-V2 network performing object detection. Ported to Keras(YAD2K [[4]](https://github.com/allanzelener/YAD2K)), pretrained on COCO dataset.
 
 Uses a YOLO-V2 setup transfered to Keras from DarkNet, uses pretrained weights [[5]](https://pjreddie.com/darknet/yolo/)    on COCO Dataset.
-The Input image is resized to an (608, 608, 3) tensor, goes through the CNN resulting in a 
-(19,19,5,85) dimensional output. After flattening the last two dimensions, the output is a volume of shape (19, 19, 425):
-Each cell in a 19x19 grid over the input image gives 425 numbers.
- 425 = 5 x 85 because each cell contains predictions for 5 boxes, corresponding to 5 anchor boxes.
-85 = 5 + 80 where 5 is because  (pc,bx,by,bh,bw) has 5 numbers, and and 80 is the number of classes we'd like to detect
+The Input image is resized to an (608, 608, 3) tensor, goes through the CNN resulting in a dimensional output of shape (19, 19, 425).
+Each cell in a 19x19 grid over the input image gives 425 numbers. 425 = 5 x 85 because each cell contains predictions for 5 boxes, corresponding to 5 anchor boxes. 85 = 5 + 80 where 5 is because  (pc,bx,by,bh,bw) has 5 numbers, and and 80 is the number of classes we'd like to detect.
 
 We then select only few boxes based on:
 * Score-thresholding: throw away boxes that have detected a class with a score less than the threshold
