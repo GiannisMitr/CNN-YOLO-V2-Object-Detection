@@ -1,6 +1,7 @@
-# - Use object detection on a car detection dataset
-# - Deal with bounding boxes
-
+# A YOLO-V2 network performing object detection. Ported to Keras(YAD2K), pretrained on COCO dataset.
+# It will load the model with the pretrained weights, print its layers,
+# try to detect objects on the given image and save the image with the predicted
+# boxes in the "/output/" path.
 import argparse
 import os
 import matplotlib.pyplot as plt
@@ -18,6 +19,8 @@ from yolo_utils import read_classes, read_anchors, generate_colors, preprocess_i
 from yad2k.keras_yolo import yolo_head, yolo_boxes_to_corners, preprocess_true_boxes, yolo_loss, yolo_body
 from PIL import Image, ImageDraw, ImageFont
 import imghdr
+
+IMAGE_NAME = 'maradona.jpg' #Image to infer
 
 def yolo_filter_boxes(box_confidence, boxes, box_class_probs, threshold = .6):
     """Filters YOLO boxes by thresholding on object and class confidence.
@@ -118,7 +121,7 @@ def yolo_non_max_suppression(scores, boxes, classes, max_boxes = 10, iou_thresho
     return scores, boxes, classes
 
 
-def yolo_eval(yolo_outputs, image_shape = (720., 1280.), max_boxes=50, score_threshold=.6, iou_threshold=.5):
+def yolo_eval(yolo_outputs, image_shape = (720., 1280.), max_boxes=10, score_threshold=.6, iou_threshold=.5):
     """
     Converts the output of YOLO encoding (a lot of boxes) to your predicted boxes along with their scores, box coordinates and classes.
     
@@ -202,18 +205,16 @@ def load_model_and_infer(sess, image_file):
     anchors = read_anchors("model/yolo_anchors.txt")
     image_shape = (float(image_size[1]),float(image_size[0]))    
 
-    # Loade the pretrained model
+    # Load the pretrained model.
     yolo_model = load_model("model/yolo.h5")
 
-
-    # print a summary of the layer's model
+    # print a summary of the layer's model.
     yolo_model.summary()
 
-
-    # Convert output of the model to bounding box tensors
+    # Convert output of the model to bounding box tensors.
     yolo_outputs = yolo_head(yolo_model.output, anchors, len(class_names))
 
-    # Filter boxes
+    # Filter boxes.
     scores, boxes, classes = yolo_eval(yolo_outputs, image_shape)
     
     # Infer predictions on the image.
@@ -234,4 +235,4 @@ def load_model_and_infer(sess, image_file):
     return out_scores, out_boxes, out_classes
 
 sess = K.get_session()
-out_scores, out_boxes, out_classes = load_model_and_infer(sess, "test.jpg")
+out_scores, out_boxes, out_classes = load_model_and_infer(sess, IMAGE_NAME)

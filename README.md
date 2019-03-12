@@ -15,9 +15,9 @@ We then select only few boxes based on:
 **This gives us YOLO's final output. Bounding boxes with estimated probabillity for a certain class of the COCO dataset.**
 ### Example output
 <p float="center">
-  <img src="/output/test.jpg" alt="drawing" width="800"/>
+  <img src="/output/roma.jpg" alt="drawing" width="800"/>
   <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
-  <img src="/output/football.jpg" alt="drawing" width="800"/>
+  <img src="/output/maradona.jpg" alt="drawing" width="800"/>
 </p> 
 
 *I do not hold the rights of the presented images. [[6]](https://tryolabs.com/images/blog/post-images/2018-03-01-guide-to-visual-question-answering/visual-question-answering.aa6ecaa1.jpg),[[7]](https://previews.123rf.com/images/larash/larash1803/larash180300013/110497762-rome-italy-june-17-2014-police-car-horse-cart-with-a-coach-for-tourists-on-the-streets-of-rome-italy.jpg)* 
