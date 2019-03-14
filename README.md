@@ -44,4 +44,4 @@ Joseph Redmon, Santosh Divvala, Ross Girshick, Ali Farhadi. You Only Look Once: 
 Joseph Redmon, Ali Farhadi. YOLO9000: Better, Faster, Stronger[[3]](https://arxiv.org/abs/1612.08242)  
 Allan Zelener, YAD2K: Yet Another Darknet 2 Keras.[[4]](https://github.com/allanzelener/YAD2K)   
 The official YOLO website.[[5]](https://pjreddie.com/darknet/yolo/)  
-Images used source.[[6]](https://tryolabs.com/images/blog/post-images/2018-03-01-guide-to-visual-question-answering/visual-question-answering.aa6ecaa1.jpg),[[7]](https://previews.123rf.com/images/larash/larash1803/larash180300013/110497762-rome-italy-june-17-2014-police-car-horse-cart-with-a-coach-for-tourists-on-the-streets-of-rome-italy.jpg)
+Images used.[[6]](https://tryolabs.com/images/blog/post-images/2018-03-01-guide-to-visual-question-answering/visual-question-answering.aa6ecaa1.jpg),[[7]](https://previews.123rf.com/images/larash/larash1803/larash180300013/110497762-rome-italy-june-17-2014-police-car-horse-cart-with-a-coach-for-tourists-on-the-streets-of-rome-italy.jpg)
